@@ -20,18 +20,18 @@ class Api {
     });
   }
 
-  // addCard(card) {
-  //   return fetch(`${this._url}/cards`, {
-  //     method: "POST",
-  //     headers: this._headers,
-  //     body: JSON.stringify({
-  //       name: card.title,
-  //       link: card.link,
-  //     }),
-  //   }).then((res) => {
-  //     return this._getResponseData(res);
-  //   });
-  // }
+  addCard(card) {
+    return fetch(`${this._url}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: card.title,
+        link: card.link,
+      }),
+    }).then((res) => {
+      return this._getResponseData(res);
+    });
+  }
 
   getUserInfo() {
     return fetch(`${this._url}/users/me`, {
@@ -42,57 +42,57 @@ class Api {
     });
   }
 
-  // editUserInfo(userName, userJob) {
-  //   return fetch(`${this._url}/users/me`, {
-  //     method: "PATCH",
-  //     headers: this._headers,
-  //     body: JSON.stringify({
-  //       name: userName,
-  //       about: userJob,
-  //     }),
-  //   }).then((res) => {
-  //     return this._getResponseData(res);
-  //   });
-  // }
+  editUserInfo(userName, userJob) {
+    return fetch(`${this._url}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: userName,
+        about: userJob,
+      }),
+    }).then((res) => {
+      return this._getResponseData(res);
+    });
+  }
 
-  // deleteCard(cardId) {
-  //   return fetch(`${this._url}/cards/${cardId}`, {
-  //     method: "DELETE",
-  //     headers: this._headers,
-  //   }).then((res) => {
-  //     return this._getResponseData(res);
-  //   });
-  // }
+  deleteCard(cardId) {
+    return fetch(`${this._url}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then((res) => {
+      return this._getResponseData(res);
+    });
+  }
 
-  // addLike(cardId) {
-  //   return fetch(`${this._url}/cards/${cardId}/likes`, {
-  //     method: "PUT",
-  //     headers: this._headers,
-  //   }).then((res) => {
-  //     return this._getResponseData(res);
-  //   });
-  // }
+  addLike(cardId) {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then((res) => {
+      return this._getResponseData(res);
+    });
+  }
 
-  // deleteLike(cardId) {
-  //   return fetch(`${this._url}/cards/${cardId}/likes`, {
-  //     method: "DELETE",
-  //     headers: this._headers,
-  //   }).then((res) => {
-  //     return this._getResponseData(res);
-  //   });
-  // }
+  deleteLike(cardId) {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then((res) => {
+      return this._getResponseData(res);
+    });
+  }
 
-  // updateAvatar(userAvatar) {
-  //   return fetch(`${this._url}/users/me/avatar`, {
-  //     method: "PATCH",
-  //     headers: this._headers,
-  //     body: JSON.stringify({
-  //       avatar: userAvatar,
-  //     }),
-  //   }).then((res) => {
-  //     return this._getResponseData(res);
-  //   });
-  // }
+  updateAvatar(userAvatar) {
+    return fetch(`${this._url}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: userAvatar,
+      }),
+    }).then((res) => {
+      return this._getResponseData(res);
+    });
+  }
 }
 
 const api = new Api({
