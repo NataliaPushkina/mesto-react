@@ -82,6 +82,8 @@ class Api {
     });
   }
 
+  // changeLikeCardStatus(cardId) 
+
   updateAvatar(userAvatar) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",

@@ -1,16 +1,19 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../index.css";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
+import api from "../utils/Api";
+import { CurrentUser, CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(!isEditAvatarPopupOpen);
@@ -35,7 +38,19 @@ function App() {
     setSelectedCard(false);
   }
 
+  useEffect(() => {
+    api.getUserInfo()
+      .then((userData) => {
+        console.log(userData);
+        setCurrentUser(userData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
+    <CurrentUserContext.Provider value={currentUser}>
     <div className="page__content">
       <Header />
       <Main
@@ -45,6 +60,7 @@ function App() {
         onCardClick={handleCardClick}
       />
       <Footer />
+
       <PopupWithForm
         name="action_edit"
         title="Редактировать профиль"
@@ -138,6 +154,7 @@ function App() {
       </PopupWithForm>
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </div>
+    </CurrentUserContext.Provider>
   );
 }
 
