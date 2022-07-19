@@ -1,3 +1,5 @@
+import React from "react";
+
 function PopupWithForm(props) {
   return (
     <div
@@ -15,6 +17,7 @@ function PopupWithForm(props) {
         <form
           className={`popup__form popup__form_${props.form}`}
           name={props.form}
+          onSubmit={props.onSubmit}
           noValidate
         >
           {props.children}

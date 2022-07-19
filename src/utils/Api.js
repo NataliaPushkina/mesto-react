@@ -20,13 +20,13 @@ class Api {
     });
   }
 
-  addCard(card) {
+  addCard(name, link) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: card.title,
-        link: card.link,
+        name,
+        link,
       }),
     }).then((res) => {
       return this._getResponseData(res);
@@ -81,8 +81,6 @@ class Api {
       return this._getResponseData(res);
     });
   }
-
-  // changeLikeCardStatus(cardId) 
 
   updateAvatar(userAvatar) {
     return fetch(`${this._url}/users/me/avatar`, {
