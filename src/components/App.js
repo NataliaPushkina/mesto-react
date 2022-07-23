@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../index.css";
 import Header from "./Header";
 import Main from "./Main";
@@ -57,7 +57,6 @@ function App() {
       api
         .deleteLike(card._id, isLiked)
         .then((newCard) => {
-          console.log(newCard);
           setCards((state) =>
             state.map((c) => (c._id === card._id ? newCard : c))
           );
@@ -70,7 +69,6 @@ function App() {
     api
       .deleteCard(card._id)
       .then((res) => {
-        console.log(res);
         setCards((state) =>
           state.filter((c) => (c._id !== card._id ? res : null))
         );
@@ -130,9 +128,7 @@ function App() {
     api
       .addCard(newPlaceName, newPlaceLink)
       .then((newCard) => {
-        console.log(newCard);
         setCards([newCard, ...cards]);
-
         closeAllPopups();
       })
       .catch((err) => {
