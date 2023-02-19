@@ -48,7 +48,7 @@ function Card(props) {
             className={cardLikeButtonClassName}
             onClick={handleLikeClick}
           ></button>
-          <span className="element__like-count"></span>
+          <span className="element__like-count">{props.card.likes.length}</span>
         </div>
       </div>
     </li>

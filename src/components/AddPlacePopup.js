@@ -19,8 +19,8 @@ function AddPlacePopup(props) {
   }
 
   useEffect(() => {
-    setNewPlaceName('');
-    setNewPlaceLink('');
+    setNewPlaceName("");
+    setNewPlaceLink("");
   }, [props.isOpened]);
 
   return (
@@ -46,7 +46,7 @@ function AddPlacePopup(props) {
           value={newPlaceName}
           onChange={handleAddPlaceName}
         />
-        <span className="popup__error title-error"></span>
+        <span className="popup__error name-error"></span>
         <input
           required
           type="url"
